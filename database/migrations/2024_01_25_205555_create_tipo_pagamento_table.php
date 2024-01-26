@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('movimento', function (Blueprint $table) {
+        Schema::create('tipo_pagamento', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('produto_id');
-            $table->unsignedInteger('quantidade_vendida');
-            $table->decimal('valor_venda', 10, 2);
+            $table->string('descricao', 50); //Dinheiro, Cartão de Credito, Cartão de Débito, Pix
+            $table->string('bandeira', 20)->nullable();
+            $table->boolean('status')->default(1);
             $table->timestamps();
-
-            $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');
         });
     }
 
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('movimento');
+        Schema::dropIfExists('tipo_pagamento');
     }
 };

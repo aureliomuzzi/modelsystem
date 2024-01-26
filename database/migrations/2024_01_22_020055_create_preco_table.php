@@ -15,14 +15,18 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('produto_id');
             $table->unsignedBigInteger('unidade_custo_id');
-            $table->decimal('valor_custo', 10,2);
+            $table->integer('unidade_por_lote');
+            $table->decimal('custo_por_unidade', 10,2);
+            $table->decimal('total_por_lote', 10,2);
+            $table->integer('quantidade');
+            $table->decimal('total_custo', 10,2);
 
             $table->unsignedBigInteger('unidade_venda_1_id');
-            $table->decimal('fator_venda_1', 10,2); // em percentual
+            $table->decimal('fator_venda_1', 10,2); // em percentual 1,03 = 3% | 1,25 = 25%
             $table->decimal('valor_venda_1', 10,2);
 
             $table->unsignedBigInteger('unidade_venda_2_id')->nullable();
-            $table->decimal('fator_venda_2', 10,2)->nullable(); // em percentual
+            $table->decimal('fator_venda_2', 10,2)->nullable(); // em percentual 1,03 = 3% | 1,25 = 25%
             $table->decimal('valor_venda_2', 10,2)->nullable();
 
             $table->timestamps();
