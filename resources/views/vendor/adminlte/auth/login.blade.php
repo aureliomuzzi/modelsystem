@@ -21,6 +21,13 @@
 @section('auth_header', __('adminlte::adminlte.login_message'))
 
 @section('auth_body')
+    <div class="card login mb-3">
+        @if (!isset($configuracao->logo))
+            <img class="card-img-top" src="/img/logo1.png" alt="Card image cap">
+        @else
+            <img class="card-img-top" src="{{ asset($configuracao->logo) }}" alt="Card image cap">
+        @endif
+    </div>
     <form action="{{ $login_url }}" method="post">
         @csrf
 
@@ -73,7 +80,7 @@
             </div>
 
             <div class="col-5">
-                <button type=submit class="btn btn-block {{ config('adminlte.classes_auth_btn', 'btn-flat btn-primary') }}">
+                <button type=submit class="btn rounded btn-block {{ config('adminlte.classes_auth_btn', 'btn-flat btn-primary') }}">
                     <span class="fas fa-sign-in-alt"></span>
                     {{ __('adminlte::adminlte.sign_in') }}
                 </button>

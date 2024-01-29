@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('prazo_em_dias'); //30, 60, 90
             $table->timestamps();
 
-            $table->foreign('tipo_pagamento_id')->references('id')->on('tipo_pagamento')->onDelete('cascade');
+            $table->foreign('tipo_pagamento_id')->references('id')->on('tipo_pagamento');
         });
     }
 

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->dateTime('data_abertura')->nullable();
             $table->enum('tipo_empresa', ['Matriz', 'Filial']);
             $table->unsignedBigInteger('matriz_id')->nullable();
-            
+            $table->string('logo')->nullable();            
             $table->string('telefone');
             $table->string('email');
             $table->boolean('status')->default(1);
